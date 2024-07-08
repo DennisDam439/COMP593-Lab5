@@ -1,0 +1,15 @@
+### student name: Dennis Dam ###    
+#### school: Fleming College ###
+#### course: Computer security and investigations #### 
+
+
+import sys 
+import poke_api
+import pastebin_api
+
+def main():
+    poke_name = get_pokemon_name()
+    poke_info = poke_api.get_pokemon_info(poke_name)
+    if poke_info is mot None:
+    
+    print(paste_url)
