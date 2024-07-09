@@ -28,10 +28,15 @@ def get_pokemon_name():
     Returns:
         str: Pokemon name
     """
-    # TODO: Function body
-    return
+# TODO: Function body
+    if len(sys.argv) < 2:
+        print("Usage: python pokemon_paste.py poke_name")
+        sys.exit(1)
+    return sys.orig_argv[1]
 
-def get_paste_data(pokemon_info):
+def construct_paste_title_body(pokemon_info):
+
+
     """Builds the title and body text for a PasteBin paste that lists a Pokemon's abilities.
 
     Args:
@@ -40,9 +45,27 @@ def get_paste_data(pokemon_info):
     Returns:
         (str, str): Title and body text for the PasteBin paste
     """    
-    # TODO: Build the paste title
-    # TODO: Build the paste body text
-    return # (title, body_text)
+# TODO: Build the paste title
+def get_paste_data(pokemon_info):
+    pokename_name = pokemon_info ['name']. capilalize()
+    abilities = ', '.join([ability['ability']['name'].capitalize() for ability in pokemon_info['abilities']])
+    title = f"{pokename_name}'s Abilities"
+    body = '\n- ' .join(abilities)
+    return title, body
+
+
+def main():
+    pokemon_name = get_pokemon_name()
+    pokemon_info = poke_api.get_pokemon_info(pokemon_name)
+    
+    if pokemon_info:
+        title, body = construct_paste_title_body(pokemon_info)
+        paste_url = pastebin_api.create_pastbin(title, body,)
+        if paste_url:
+            print(paste_url)
+
 
 if __name__ == '__main__':
     main()
+
+
