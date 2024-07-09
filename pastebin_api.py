@@ -4,8 +4,8 @@ https://pastebin.com/doc_api
 '''
 import requests
 
-PASTEBIN_API_POST_URL = 'https://pastebin.com/api/api_post.php'
-API_DEV_KEY = 'Put your API key here'
+PASTEBIN_API_POST_URL = 'https://pastebin.com/api/api_post.phpc'
+API_DEV_KEY = 'XDCiUTERnlvgvnZBagDYJIJY-zOodEGT'
 
 def post_new_paste(title, body_text, expiration='N', listed=True):
     """Posts a new paste to PasteBin
