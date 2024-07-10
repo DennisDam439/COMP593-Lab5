@@ -54,19 +54,25 @@ import pastebin_api
 pastebin_api_post_url = ('XDCiUTERnlvgvnZBagDYJIJY-zOodEGT')
 
 def main ():
-     poke_name = get_poke_name()
-     poke_info = poki_api.get_pokemon_info(poke_name)
-     if poke_info is None:
-        paste_url = pastebin_api_post_new_paste(poke info['name'], poke_info['description'])
+    poke_name = get_poke_name()
+    poke_info = poki_api.get_pokemon_info(poke_name)
+    if poke_info is None:
+        paste_url = pastebin_api.post_new_paste(poke_info['name'], poke_info['description'])
         if paste_url:
-               print(paste_url)
+                print(f'Paste URL: {paste_url}')
         else:
              print("Failed to create paste.")
-        else:
-            print(f"Failed to get info for {poke_name}.")
+    else:
+        print(f"Failed to get info for {poke_name}.")
+
+        
 
 
 
+
+    
+
+    
     
 
 
