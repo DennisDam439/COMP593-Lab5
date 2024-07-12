@@ -29,8 +29,8 @@ post_params = { 'api_dev_key' : API_DEV_KEY,
                 'api_paste_code': body_text,
                 'api_paste_name': title,
                 'api_paste_private' : 0 if listed else 1,
-                'api_paste_expire_date' : expiration }
-
+                'api_paste_expire_date' : expiration
+}
 # request a new Pastebin 
 resp_msg= requests.post(PASTEBIN_API_POST_URL, data=post_params)
     
@@ -42,7 +42,10 @@ if resp_msg.status_code == requests.codes.ok:
 else:
      print("Failure in creating paste")
      print(f'Response code: {resp_msg.status_code} - {resp_msg.reason}')
-return resp_msg.text 
+return resp_msg.text
+
+
+
 
 
 
