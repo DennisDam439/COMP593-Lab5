@@ -20,8 +20,6 @@ def post_new_paste(title, body_text, expiration='N', listed=True):
     Returns:
         str: URL of new paste, if successful. Otherwise None.
     """    
-# TODO: Function body
-print("Posting new paste to Pastebin...", end='')
 
 # Construct the Pastebin API request parameters  
 post_params = {
@@ -65,7 +63,7 @@ def main ():
     else:
         print(f"Failed to get info for {poke_name}.")
 
-        
+
 
 
 
