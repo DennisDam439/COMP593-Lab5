@@ -22,7 +22,7 @@ def post_new_paste(title, body_text, expiration='N', listed=True):
     """    
 
 # Construct the Pastebin API request parameters  
-post_params = { 'api_dev_key' : API_DEV_KEY,
+post_params = { 'api_dev_key' : API_DEV_KEY post_params = { 'api_dev_key' : API_DEV_KEY,
                 'api_option' : 'paste',
 def post_new_paste(title, body_text, expiration='N', listed=True):
     """Posts a new paste to PasteBin
