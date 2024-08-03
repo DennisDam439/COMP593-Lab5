@@ -29,13 +29,13 @@ def get_pokemon_name():
         str: Pokemon name
     """
 # TODO: Function body
-    if len(sys.argv) < 2:
-        print("Usage: python pokemon_paste.py poke_name")
-        sys.exit(1)
-    return sys.orig_argv[1]
+    if len(sys.argv) >= 2:    
+        return sys.argv[1]
+    else:
+     print("Error: Pokemon name is not provided.")
+     sys.exit("aborted script execution")
 
-def construct_paste_title_body(pokemon_info):
-
+def get_paste_title_body(pokemon_info):
 
     """Builds the title and body text for a PasteBin paste that lists a Pokemon's abilities.
 
@@ -47,11 +47,15 @@ def construct_paste_title_body(pokemon_info):
     """    
 # TODO: Build the paste title
 def get_paste_data(pokemon_info):
-    pokename_name = pokemon_info ['name']. capilalize()
-    abilities = ', '.join([ability['ability']['name'].capitalize() for ability in pokemon_info['abilities']])
-    title = f"{pokename_name}'s Abilities"
-    body = '\n- ' .join(abilities)
-    return title, body
+   pokemon_name=pokemon_info['name'].capitalize()
+   title= f"{poke_name}'s Abilities:"
+
+
+
+
+   body_text= f"##{poke_name}'[abilities]:\n\n"
+        body_text += f"-{ability['ability']['name']}\n   
+    return title, body_text
 
 
 def main():
