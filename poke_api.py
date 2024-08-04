@@ -40,9 +40,8 @@ def get_pokemon_info(pokemon_name):
     
 
 # TODO: If the GET request failed, print the error reason and return None
-        print(f"Getting information for {pokemon_name}....failed")
-        print(f"Respond code: {respond.status_code} ({respond.reason})")
-    return
+    print(f"Getting information for {pokemon_name}....failed")
+   
 
 
 

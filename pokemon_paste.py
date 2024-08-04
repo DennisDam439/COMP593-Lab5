@@ -1,13 +1,13 @@
-""" 
+"""     
 Description: 
   Creates a new PasteBin paste that contains a list of abilities 
   for a specified Pokemon
 
 Usage:
-  python pokemon_paste.py poke_name
+ python pokemon_paste.py poke_name
 
 Parameters:
-  poke_name = Pokemon name
+ poke_name = Pokemon name
 """
 import sys
 import poke_api
@@ -18,7 +18,7 @@ def main():
     poke_info = poke_api.get_pokemon_info(poke_name)
     if poke_info is not None:
         paste_title, paste_body = get_paste_data(poke_info)
-        paste_url = pastebin_api.post_new_paste(paste_title, paste_body, '1M')
+        paste_url = pastebin_api.post_new_paste(paste_title, paste_body,'1M')
         print(paste_url)
 
 def get_pokemon_name():
@@ -35,7 +35,7 @@ def get_pokemon_name():
      print("Error: Pokemon name is not provided.")
      sys.exit("aborted script execution")
 
-def get_paste_title_body(pokemon_info):
+def get_paste_data(pokemon_info):
 
     """Builds the title and body text for a PasteBin paste that lists a Pokemon's abilities.
 
@@ -46,28 +46,16 @@ def get_paste_title_body(pokemon_info):
         (str, str): Title and body text for the PasteBin paste
     """    
 
-
 # TODO: Build the paste title
-pokemon_name =pokemon_info['name'].capitalize()
-title=f"{poke_name}'s Abilities"
+    poke_name=pokemon_info['name'].capitalize()
+    title = f"{poke_name}'s Abilities"
 
    
-        ## Body text
-body_text= f"##{poke_name}'[abilities]:\n\n"
-    for abililty in pokemon_info['abiliries']:     
-        body_text += f"-{ability['ability']['name']}\n   
-    return (title, body_text)
-
-
-def main():
-    pokemon_name = get_pokemon_name()
-    pokemon_info = poke_api.get_pokemon_info(pokemon_name)
-    
-    if pokemon_info:
-        title, body = construct_paste_title_body(pokemon_info)
-        paste_url = pastebin_api.create_pastbin(title, body,)
-        if paste_url:
-            print(paste_url)
+## Building paste bodytext
+    body_text= f"## {poke_name}'s Abilities:\n\n"
+    for ability in pokemon_info['abilities']:     
+        body_text += f"-{ability['ability']['name']}\n"  
+    return(title,body_text)
 
 
 if __name__ == '__main__':
