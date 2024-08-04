@@ -42,8 +42,5 @@ def get_pokemon_info(pokemon_name):
 # TODO: If the GET request failed, print the error reason and return None
     print(f"Getting information for {pokemon_name}....failed")
    
-
-
-
 if __name__ == '__main__':
     main()
